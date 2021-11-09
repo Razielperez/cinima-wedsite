@@ -1,0 +1,63 @@
+﻿
+@model Cinema.viewModel.ShowsViewModel
+@using Cinema.Models
+@{ 
+    int indexShow = 1; 
+}
+
+<link href="~/css/cart.css" rel="stylesheet" />
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+    <table id="cart" class="table table-hover table-condensed">
+        <thead>
+            <tr>
+                <th style="width:33%">Movie</th>
+                <th style="width:13%">Date</th>
+                <th style="width:7%">Hour</th>
+                <th style="width:14%" class="text-center">Hall</th>
+                <th style="width:0%" class="text-center">New hall</th>
+                <th style="width:10%"></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (Show obj in Model.shows )
+            {
+                <tr>
+                    <td data-th="Movie">
+                        <div class="row">
+                            <div class="col-sm-2 hidden-xs"><img src="@obj.movie.img" alt="..." class="img-responsive" /></div>
+                            <div class="col-sm-10">
+                                <h4 class="nomargin">@obj.time.name</h4>
+
+                            </div>
+                        </div>
+                    </td>
+                    <td data-th="Date">@obj.time.date</td>
+                    <td data-th="Hour">
+                        <p>@obj.time.hour</p>
+                    </td>
+                    <td data-th="Hall" class="text-center">@obj.time.hall</td>
+                    <form style="display:inline" method="post" action="@Url.Action("changeHall", "Cinema",new {name=obj.movie.name,date=obj.time.date,hour=obj.time.hour,hall=obj.time.hall, index=indexShow})">
+                        <td data-th="New hall" class="text-center"><input type="text" name="@indexShow"   placeholder="new hall" /></td>
+                        @{ indexShow++;}
+                        <td class="actions" data-th="">
+                            <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
+                        </td>
+                    </form>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td><a href="~/Cinema/adminPage" class="btn btn-warning"><i class="fa fa-angle-left"></i> Go back?</a></td>
+                <td colspan="2" class="hidden-xs"></td>
+
+                <td class="hidden-xs text-center"></td>
+                
+            </tr>
+        </tfoot>
+    </table>
+
+</div>
+

@@ -1,0 +1,37 @@
+﻿@model Cinema.viewModel.MovieInfoViewModel
+@using Cinema.Models
+<head>
+    <link href="~/css/StyleMoviePage.css" rel="stylesheet" />
+</head>
+<body>
+    <section>
+        <article>
+            <div class="poster" style="display:inline-block">
+                <img src=@Model.movie.img alt="Rogue One Poster" />
+            </div>
+            <a  style="visibility:hidden" >a </a>
+            <div class="button">
+                <form method="post" action="@Url.Action("add", "Cinema", new{ name= @Model.movie.name})" style="display:inline">
+                    <label class="label1" name="date-select">Choose a date:         </label>
+                    <select class="select" name="selectDate">
+                        <option value="">--Please choose an option--</option>
+                        @foreach (Time obj in Model.dates)
+                        {
+                        <option value="@obj.date*@obj.hour">@obj.date-@obj.hour</option>
+                        }
+                    </select>
+                    <input name="GO!" class="buttongo" value="GO!" type="submit" />   
+                        </form>     
+            </div>
+            
+                
+
+            <div class="info">
+                <h3 class="title">@Model.movie.name</h3>
+                <label style="font-size:18px;color:#ccc">summary:</label>
+                <p class="description">@Model.movie.summry</p>
+                
+            </div>
+        </article>
+    </section>
+</body>

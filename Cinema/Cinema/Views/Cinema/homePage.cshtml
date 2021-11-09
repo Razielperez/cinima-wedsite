@@ -1,0 +1,191 @@
+﻿<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+@using Cinema.Controllers
+<!DOCTYPE HTML>
+<head>
+    <title>Free Movies Store Website Template | Home :: w3layouts</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" media="all" />
+ 
+    
+</head>
+<body>
+   
+    <div class="header">
+        <div class="headertop_desc">
+            <div class="wrap">
+                <div class="nav_list">
+                    <ul>
+                        <li><a href="~/Cinema/homePage" style="margin-left: -90px;">Home</a></li>
+                        <li><a href="~/Cinema/MovieGallery">Gallery</a></li>
+                        @*<li><a href="@Url.Action("test", "Cinema")">Contact</a></li>*@
+                        @if (CinemaController.user != null)
+                        {
+
+                            <li style="padding-left:281px;color:black"><img width="13" height="15" src="~/Content/images/user.png" />  Welcome @CinemaController.user.UserName</li>
+                        }
+                    </ul>
+                </div>
+                <div class="account_desc">
+                    <ul>      
+                        <li><a href="~/Cinema/login">Login</a></li>
+                       
+                        <li><a href="~/Cinema/logout">Log out</a></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="wrap">
+            <div class="header_top">
+                
+                <div class="logo">
+                    <a href="~/Cinema/homepage"><img src="~/Content/images/TestLogo2.png" alt="" /></a>
+                </div>
+                <div class="header_top_right">
+                    
+                    @if (CinemaController.user != null)
+                    {
+                        <div class="cart">
+                            <a href="~/Cinema/cart"> Cart <img src="https://image.flaticon.com/icons/png/512/126/126083.png" width="20" height="17" /></a>
+                        </div>
+                       
+                        }
+
+                        <div class="clear"></div>
+                    </div>
+
+                            <div class="clear"></div>
+                        </div>
+                        <div class="header_bottom">
+                            <div class="header_bottom_left">
+                                <div class="categories">
+                                    <ul>
+                                        <h3>Categories</h3>
+                                        <li><a href="#">All</a></li>
+                                        <li><a href="#">Hindi</a></li>
+                                        <li><a href="#">Telugu</a></li>
+                                        <li><a href="#">English</a></li>
+                                        <li><a href="#">Tamil</a></li>
+                                        <li><a href="#">Malayalam</a></li>
+                                        <li><a href="#">Kannada</a></li>
+                                        <li><a href="#">Bengali</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="header_bottom_right">
+                                <!------ Slider ------------>
+                                <div class="slider">
+                                    <div class="slider-wrapper theme-default">
+                                        <div id="slider" class="nivoSlider">
+                                            <a href="@Url.Action("info_movie", "Cinema",new { name ="Jumanji: Surviving in the Jungle"})">
+                                              <img  style="width: 133%;height: 386.43px; margin-left: -98px;"
+                                                   src="https://occ-0-2794-2219.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABWQWnR1Ne6rYpd2yNwRXEjTqxP2pqF65LEtdJL2KhGoNl67ZnnJpV6_gkDc3bFTxU2iueApkngTxb0JgQfB3HGlFsZtU.jpg?r=1e8" data-thumb="images/1.jpg" alt="" />
+                                                </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!------End Slider ------------>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+                <!------------End Header ------------>
+                <div class="main">
+                    <div class="wrap">
+                        <div class="content">
+                            <div class="content_top">
+                                <div class="heading">
+                                    <h3>New Products</h3>
+                                </div>
+                            </div>
+                            <div class="section group">
+                                <div class="grid_1_of_5 images_1_of_5">
+                                    <a ><img src="https://upload.wikimedia.org/wikipedia/he/3/38/Fast_and_Furious_poster.jpg" alt="" /></a>
+                                    <h2><a href="">Fast and Furious</a></h2>
+                                    <div class="price-details">
+                                        <div class="price-number">
+                                            <p><span class="rupees">40₪</span></p>
+                                        </div>
+                                        <div class="add-cart">
+                                            <h4><a href="@Url.Action("info_movie", "Cinema",new { name ="Fast and Furious"})">show</a></h4>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                                <div class="grid_1_of_5 images_1_of_5">
+                                    <a ><img src="https://specials-images.forbesimg.com/imageserve/5dae0ad2c538200007810d63/960x0.jpg?fit=scale" alt="" /></a>
+                                    <h2><a href="">Joker</a></h2>
+                                    <div class="price-details">
+                                        <div class="price-number">
+                                            <p><span class="rupees">19₪</span></p>
+                                        </div>
+                                        <div class="add-cart">
+                                            <h4><a href="@Url.Action("info_movie", "Cinema",new { name ="Joker"})">show</a></h4>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+
+                                </div>
+                                <div class="grid_1_of_5 images_1_of_5">
+                                    <a ><img src="https://m.media-amazon.com/images/M/MV5BMDk5Yzc4NzMtODUwOS00NTdhLTg2MjEtZTkzZjc0ZWE2MzAwXkEyXkFqcGdeQXVyMTA3MTA4Mzgw._V1_.jpg" alt="" /></a>
+                                    <h2><a >Sonic </a></h2>
+                                    <div class="price-details">
+                                        <div class="price-number">
+                                            <p><span class="rupees">33₪</span></p>
+                                        </div>
+                                        <div class="add-cart">
+                                            <h4><a href="@Url.Action("info_movie", "Cinema",new { name ="Sonic the Hedgehog"})">show</a></h4>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+
+                                </div>
+                                <div class="grid_1_of_5 images_1_of_5">
+                                    <a href=""><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAHHFN_5SAKy9SPRGHUbQreb96gt58Md09wA&usqp=CAU" alt="" /></a>
+                                    <h2><a >Venom</a></h2>
+                                    <div class="price-details">
+                                        <div class="price-number">
+                                            <p><span class="rupees">50₪</span></p>
+                                        </div>
+                                        <div class="add-cart">
+                                            <h4><a href="@Url.Action("info_movie", "Cinema",new { name ="Venom"})">show</a></h4>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                                <div class="grid_1_of_5 images_1_of_5">
+                                    <a><img src="https://images-na.ssl-images-amazon.com/images/I/71dyYgUHyvL._SL1500_.jpg" alt=""  "/></a>
+                                    <h2><a >The Upside</a></h2>
+                                    <div class="price-details">
+                                        <div class="price-number">
+                                            <p><span class="rupees">30₪</span></p>
+                                        </div>
+                                        <div class="add-cart">
+                                            <h4><a href="@Url.Action("info_movie", "Cinema",new { name ="The Upside"})">show</a></h4>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        $().UItoTop({ easingType: 'easeOutQuart' });
+
+                    });</script>
+                <a href="#" id="toTop"><span id="toTopHover"> </span></a>
+            </body>
+
+

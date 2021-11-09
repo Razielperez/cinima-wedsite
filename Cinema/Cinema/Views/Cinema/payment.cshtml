@@ -1,0 +1,90 @@
+﻿@using Cinema.Controllers;
+<link href="~/css/payment.css" rel="stylesheet" />
+<div class="info">
+    <h1>Payment </h1>
+
+    <i class="fa fa-beer"></i>
+    <div class="spoilers">
+
+    </div>
+</div>
+
+<div class="card">
+    <div class="top">
+        <div class="payment">Payment Details</div>
+
+    </div>
+
+
+    <form method="post" action="pay">
+        <div class="card-body">
+
+
+            <div class="one">
+                <label for=''>Name on card</label>
+                <input placeholder='Johny Relative' type='text' name="nameName" required>
+            </div>
+
+            <div class="two">
+                <label for=''>Card Number</label>
+                <input maxlength='16' max="9999999999999999" min="1000000000000000" data-mask="0000 0000 0000 0000"
+                       placeholder='1234 6632 0000 8890' type='number' name="numCardName" required>
+            </div>
+
+            <div class="three">
+                <label for=''>Expiry Date</label>
+                <select required>
+                    <option>January</option>
+                    <option>February</option>
+                    <option>March</option>
+                    <option>April</option>
+                    <option>May</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>September</option>
+                    <option>October</option>
+                    <option>November</option>
+                    <option>December</option>
+                </select>
+            </div>
+
+            <div class="four">
+                <!-- blank character -->
+                <label for=''>&#x200b;</label>
+                <select required>
+                    <option>2021</option>
+                    <option>2022</option>
+                    <option>2023</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                    <option>2026</option>
+                </select>
+            </div>
+            <div class="five">
+                <label for=''>CVV</label>
+                <input maxlength='3' max="999" min="1" placeholder='633' data-mask="000" type='number' required>
+            </div>
+
+
+
+        </div><br /><br /><br /><br />
+
+
+        <input class="choose" value="pay" style="width: 20%;margin: 30px;color:white;margin-left: 0px" type="submit" />
+
+    </form>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="Razielp18@gmail.com">
+        <input type="hidden" name="lc" value="US">
+        <input type="hidden" name="amount" value="@CinemaController.paypal">
+        <input type="hidden" name="currency_code" value="ILS">
+        <input type="hidden" name="button_subtype" value="services">
+        <input type="hidden" name="no_note" value="0">
+        <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
+        <input type="image" src="~/Content/images/paypal.png" border="0" name="submit"  class="paypal" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+    </form>
+
+</div>

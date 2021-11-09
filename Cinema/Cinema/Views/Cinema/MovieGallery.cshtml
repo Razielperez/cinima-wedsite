@@ -1,0 +1,107 @@
+﻿@model Cinema.viewModel.MovieViewModel
+@using Cinema.Models
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="~/css/gallery.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <h1><img src="~/Content/images/OrangeGallery.png" ></h1>
+        <div class="buttons">
+            <ul>       
+                <li> <label style="color:#ff6a00">ORDER BY: </label></li>
+                <li><a href="@Url.Action("order", "Cinema", new {name = "down"  })">price decrease</a></li>
+                <li><a href="@Url.Action("order", "Cinema", new {name = "up" })">price increase</a></li>
+                <li><a href="@Url.Action("order", "Cinema", new {name = "most popular" })">most popular</a></li>
+                <li><a href="@Url.Action("order", "Cinema", new {name = "age"  })">18+</a></li>
+                <li><a href="@Url.Action("order", "Cinema", new {name = "sale"  })">sale</a></li>
+                <br />
+                <br />
+                <li>
+                    <form method="post" action="@Url.Action("order", "Cinema",new { name ="category"})" style="display:inline">
+                        <label for="date-select" name="date-select">category: </label>
+                        <select id="select" name="selectName" class="select">
+                            <option value="">--Please choose--</option>
+                            <option value="Action">Action</option>
+                            <option value="Comedy">Comedy</option>
+                            <option value="Tension">Tension</option>
+                            <option value="Cartoon">Cartoon</option>
+                            <option value="Sci-Fi">Sci-Fi</option>
+
+                        </select>
+                        <input class="choose" value="Select" type="submit" />
+                    </form>
+                </li>
+                <li>
+                    <form method="post" action="@Url.Action("order", "Cinema",new { name ="range price"})" style="display:inline">
+                        <label for="range-1a" style="display:inline">Range price:</label>
+                        <input type="range" style="display:inline" class="slider" name="slider" id="sliderID" min="0" max="60" value="0" data-popup-enabled="true" data-show-value="true">
+
+                        <input class="choose" value="Select" type="submit" />
+                        <output for="range" class="output" style="display:inline;"></output>
+
+
+                    </form>
+                </li>
+
+
+                <br />
+                <br />
+                <li>
+                    <form method="post" style="display:inline" action="@Url.Action("order", "Cinema",new { name ="range date"})">
+                        <label for="limitDate"> date:</label>
+                        <input type="date" name="limitDate" class="tableDate" value="">
+                        <input class="choose" value="Select" type="submit" />
+                    </form>
+                </li>
+                <li>
+                    <form method="post" style="display:inline" action="@Url.Action("order", "Cinema",new { name ="range time"})">
+                        <label for="limitTime"> Time:</label>
+                        <input type="time" name="limitTime" class="tableDate" value="">
+                        <input class="choose" value="Select" type="submit" />
+                    </form>
+                </li>
+
+            </ul>
+        </div>
+    </header>
+    <div class="container">
+        @foreach (Movie obj in Model.movies)
+        {
+        <div class="movie-item">
+            <a href="@Url.Action("info_movie", "Cinema", new { name = @obj.name })"> <img src=@obj.img alt="" width="400" height="400"></a>
+            <p style="color:#ccc"> @obj.name </p>
+            @{ if (obj.salePrice != 0)
+                {
+                    <p style="color:#000000;text-decoration: line-through">@obj.price₪</p>
+                    <p style="color:#000000" >@obj.salePrice₪</p>
+                }
+                else
+                {
+                    <p style="color:#000000">@obj.price₪</p>
+                }
+             }
+            </div>
+        }
+
+
+    </div>
+    <script>
+        $('#sliderID').on("input", function () {
+            $('.output').val(this.value + "₪");
+        }).trigger("change");
+    </script>
+
+
+</body>
+
+</html>

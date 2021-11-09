@@ -1,0 +1,253 @@
+﻿@import url(https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic);
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100italic,100,300,300italic,400italic,500,500italic,700,700italic,900,900italic);
+
+body {
+    background: #E2E2E2;
+}
+
+.card {
+    width: 600px;
+    height: 450px;
+    background: #FFF;
+    margin: 0 auto;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.top {
+    width: 100%;
+    background: #ff6a00;
+    padding: 57px 0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    position: relative;
+}
+
+.payment {
+    position: absolute;
+    width: 30px;
+    font-size: 22px;
+    color: #FFF;
+    font-family: 'ubuntu', sans-serif;
+    text-transform: uppercase;
+    line-height: 25px;
+    font-weight: 500;
+    top: 32px;
+    left: 35px;
+}
+
+.visa svg {
+    width: 120px;
+    height: auto;
+    position: absolute;
+    right: 29px;
+    top: -195px;
+}
+
+
+/*form styles*/
+form {
+    width: 550px;
+    margin: 0 auto;
+}
+
+.one {
+    width: 225px;
+}
+
+.two {
+    width: 245px;
+}
+
+.one, .two, .three, .four, .five {
+    float: left;
+    margin: 15px 40px 5px 0;
+}
+
+.three, .four, .five {
+    float: left;
+    width: 143px;
+}
+
+input, select {
+    clear: both;
+    float: none;
+    display: block;
+    -webkit-appearance: none;
+    border: 1px solid rgb(197, 197, 197);
+    padding: 14px 15px;
+    border-radius: 3px;
+    width: 100%;
+    font-size: 15px;
+    color: #000;
+    text-align: left;
+    font-weight: bold;
+    background: #FFF;
+}
+
+input {
+    color: rgb(244, 195, 88);
+    text-shadow: 0px 0px 0px #000;
+    -webkit-text-fill-color: transparent;
+}
+
+select {
+    padding-left: 15px;
+}
+
+::-webkit-input-placeholder {
+    font-size: 15px;
+    color: #000;
+    text-align: left;
+    font-weight: bold;
+    padding-left: 0px;
+}
+
+:-moz-placeholder { /* older Firefox*/
+    font-size: 15px;
+    color: #000;
+    text-align: left;
+    font-weight: bold;
+    padding-left: 0px;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+    font-size: 15px;
+    color: #000;
+    text-align: left;
+    font-weight: bold;
+    padding-left: 0px;
+}
+
+:-ms-input-placeholder {
+    font-size: 15px;
+    color: #000;
+    text-align: left;
+    font-weight: bold;
+    padding-left: 0px;
+}
+
+label {
+    color: rgb(151, 151, 151);
+    font-size: 12px;
+    font-weight: 500;
+   
+    font-family: 'ubuntu', sans-serif;
+    text-transform: uppercase;
+    margin: 15px 0;
+    display: block;
+}
+
+input[type=text]:focus, input[type=number]:focus, textarea:focus, select:focus {
+    box-shadow: none;
+    outline: none;
+    border: 1px solid rgb(25, 146, 250);
+}
+
+
+
+/*drop down arrow */
+/* Targetting Webkit browsers only. FF will show the dropdown arrow with so much padding. */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    select {
+        padding-right: 18px
+    }
+}
+
+label {
+    position: relative
+}
+
+.three label:after, .four label:after {
+    content: "\f078";
+    font-family: "FontAwesome";
+    font-size: 11px;
+    color: rgb(140, 140, 140);
+    right: 10px;
+    top: 45px;
+    padding: 0 0 2px;
+    position: absolute;
+    pointer-events: none;
+}
+
+label:before {
+    content: '';
+    right: 4px;
+    top: 0px;
+    width: 23px;
+    height: 18px;
+    background: #fff;
+    position: absolute;
+    pointer-events: none;
+    display: block;
+}
+
+
+
+
+
+
+/* Info */
+.info {
+    width: 300px;
+    margin: 35px auto;
+    text-align: center;
+    font-family: 'roboto', sans-serif;
+}
+
+    .info h1 {
+        margin: 0;
+        padding: 0;
+        font-size: 28px;
+        font-weight: 400;
+        color: #333333;
+        padding-bottom: 5px;
+    }
+
+    .info span {
+        color: #666666;
+        font-size: 13px;
+        margin-top: 20px;
+    }
+
+        .info span a {
+            color: #666666;
+            text-decoration: none;
+        }
+
+        .info span .fa {
+            color: rgb(226, 168, 16);
+            font-size: 19px;
+            position: relative;
+            left: -2px;
+        }
+
+        .info span .spoilers {
+            color: #999999;
+            margin-top: 5px;
+            font-size: 10px;
+        }
+.choose {
+    background: #ff6a00;
+    color: #FFF;
+    text-align: center;
+    -webkit-appearance: none;
+    border: 1px solid #ccc;
+    border-radius: 125px;
+    text-shadow: 0px 0px 0px #FFF;
+    cursor: pointer;
+    font-family: 'Lucida Grande', Helvetica, Arial, sans-serif;
+    font-size: 2rem;
+    position: relative;
+    transition: all ease .3s;
+    display: inline;
+}
+.paypal {
+    width: 184px;
+    height: 92px;
+    margin-left: 258px;
+    margin-top: -110px;
+    border: aliceblue;
+   margin-left: 357px;
+}

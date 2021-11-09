@@ -1,0 +1,50 @@
+﻿
+@model Cinema.viewModel.HallViewModel
+@using Cinema.Models
+
+
+<link href="~/css/cart.css" rel="stylesheet" />
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+    <table id="cart" class="table table-hover table-condensed">
+        <thead>
+            <tr>
+                <th style="width:33%">Hall</th>
+                <th style="width:13%">number seats</th>
+                <th style="width:0%" class="text-center">New nuber seats </th>
+                <th style="width:10%"></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (Hall obj in Model.halls)
+            {
+                <tr>
+                    
+                    <td data-th="Hall">@obj.name</td>
+                    <td data-th="number seats">
+                        <p>@obj.numSeat</p>
+                    </td>
+                    <form style="display:inline" method="post" action="@Url.Action("changeNumSeats", "Cinema",new {name=obj.name})">
+                        <td data-th="New nuber seats" class="text-center"><input style="width:140px" type="number"  min="1" max="60" name="@obj.name" placeholder="new nuber seats" /></td>
+                       
+                        <td class="actions" data-th="">
+                            <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
+                        </td>
+                    </form>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td><a href="~/Cinema/adminPage" class="btn btn-warning"><i class="fa fa-angle-left"></i> Go back?</a></td>
+                <td colspan="2" class="hidden-xs"></td>
+
+                <td class="hidden-xs text-center"></td>
+
+            </tr>
+        </tfoot>
+    </table>
+
+</div>
+

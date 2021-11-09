@@ -1,0 +1,16 @@
+﻿<link href="~/css/login.css" rel="stylesheet" />
+@model Cinema.Models.User
+<div class='wrap'>
+    sing up
+    <form action="registerButton" method="post">
+        <input type='text' name="UserName" class="inputBox" id='username' placeholder='Username' value="@Model.UserName" required>
+        <input type='password' name="Password" class="inputBox" id='password' placeholder='Password' required>
+        <input  name="Email" class="inputBox" id='idEmail' placeholder='Email' required>
+        <input  placeholder='age'  type="number" name="Age" class="inputBox" id='idAge'  required>
+        <input id="id_login" class='buttonClass' value="Sing up" type="submit" />
+        </form>
+        <form action="backLoginButton" method="post">
+            <input id="id_sing_up" class='buttonClass' value="Log in" style="margin-top: -48px" type="submit" />
+        </form>
+        
+</div>

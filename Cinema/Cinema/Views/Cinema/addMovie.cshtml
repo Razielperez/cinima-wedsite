@@ -1,0 +1,19 @@
+﻿<link href="~/css/login.css" rel="stylesheet" />
+@model Cinema.Models.Movie
+<div class='wrap'>
+    Adding:
+    <form action="addMovieButton" method="post">
+        <input type='text' name="name" class="inputBox" placeholder='name movie' required>
+        <input type='text' name="category" class="inputBox" placeholder='category' required>
+        <input name="price" class="inputBox" placeholder='price' type="number" min="1" required>
+        <input name="salePrice" class="inputBox" placeholder='sale price' type="number" min="1" >
+        <input placeholder='age' type="number" name="age" class="inputBox" min="1" required>
+        <input placeholder='summary' type="text" name="summry" class="inputBox" required>
+        <input placeholder='Image' type="file" name="img" accept="~/Content/images/" style="margin-left:62px" class="inputBox" required>
+        <input id="id_login" class='buttonClass' value="ADD" type="submit" />
+    </form>
+
+
+</div>
+
+

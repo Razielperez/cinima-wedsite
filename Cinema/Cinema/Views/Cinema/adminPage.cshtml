@@ -1,0 +1,91 @@
+﻿<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800,900" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/css/adminPage.css" rel="stylesheet" />
+</head>
+<body>
+   
+    <div class="wrapper">
+        
+        <div class="main-content">
+            <div class="topmenu">
+                <t style="font-size:24px"><img width="20" height="23" src="~/Content/images/userAdmin.png" />
+                                            Hi,Admin</t>
+                <a href="#" id="showmenu"><i class="fa fa-bars" aria-hidden="true"></i></a>
+                <a href="~/Cinema/logout"style="font-size:22px;margin-left:74%">Log out</a>
+                
+            </div>
+            <div class="main-section">
+                <div class="section-title">Possible actions:</div>
+                <div class="card">
+                    <div class="status-green"></div>
+                    <div class="card-content">
+                        <a href="~/Cinema/addMovie" style="color:black">Adding a new movie</a>
+                    </div>
+                    <div class="author"><i class="fa fa-user-circle-o" aria-hidden="true"></i></div>
+                </div>
+                <div class="card">
+                    <div class="status-green"></div>
+                    <div class="card-content">
+                        <a href="~/Cinema/removeAdmin" style="color:black">Remove a movie from the movie list</a>
+                    </div>
+                    <div class="author"><i class="fa fa-user-circle-o" aria-hidden="true"></i></div>
+                </div>
+                <div class="card">
+                    <div class="status-green"></div>
+                    <div class="card-content">
+                        <a href="~/Cinema/ChangeHallAdmin" style="color:black"> Changing hall for screening</a>
+                    </div>
+                    <div class="author"><i class="fa fa-user-circle-o" aria-hidden="true"></i></div>
+                </div>
+                <div class="card">
+                    <div class="status-green"></div>
+                    <div class="card-content">
+                        <a href="~/Cinema/changePriceAdmin" style="color:black">Price change for a specific movie</a>
+                    </div>
+                    <div class="author"><i class="fa fa-user-circle-o" aria-hidden="true"></i></div>
+                </div>
+                <div class="card">
+                    <div class="status-green"></div>
+                    <div class="card-content">
+                        <a href="~/Cinema/ChangeNumSeatsAdmin" style="color:black">  Change the number of chairs in the hall</a>
+                    </div>
+                    <div class="author"><i class="fa fa-user-circle-o" aria-hidden="true"></i></div>
+                </div>
+                <div class="card">
+                    <div class="status-green"></div>
+                    <div class="card-content">
+                        <a href="~/Cinema/addTime" style="color:black"> Adding a new time</a>
+                    </div>
+                    <div class="author"><i class="fa fa-user-circle-o" aria-hidden="true"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $(".menu i").hide();
+            $("#showmenu").click(function () {
+                if ($(".side-menu").width() > "60") {
+                    $(".side-menu").animate({ width: '-=205px' });
+                    $(".main-section").animate({ 'margin-left': '-=205px' });
+                    $(".logo").text("w");
+                    $("span.text").hide();
+                    $(".menu i").show();
+
+                }
+                else {
+                    $(".side-menu").animate({ width: '+=205px' });
+                    $(".main-section").animate({ 'margin-left': '+=205px' });
+                    $(".logo").text("wiplo");
+                    $("span.text").show("slow");
+                    $(".menu i").hide();
+                }
+
+            });
+
+        });
+    </script>
+</body>
+</html>

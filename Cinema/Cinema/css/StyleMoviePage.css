@@ -1,0 +1,133 @@
+﻿
+body {
+    background: url(https://pub-static.fotor.com/static/web/site/features/backgrounds/images/Fotor-wall-background-image-6.jpg);
+}
+section {
+    margin-top: 6%;
+    background: #F6F6F6;
+    width: 100%;
+    display: inline-block;
+}
+.button {
+    
+    margin-left:5px;
+}
+.label1 {  
+    font-style: italic;
+    font-size: 18px;
+    color:#ccc;
+}
+
+.buttongo {
+    background: #ccc;
+    color:#FFF;
+    margin: 0 auto;
+    max-width: 50rem;
+    text-align: center;
+    -webkit-appearance: none;
+    border: 1px solid #ccc;
+    border-radius: 125px;
+    box-shadow: inset 0 13px 25px rgba(255,255,255,0.5), 0 3px 5px rgba(0,0,0,0.2), 0 10px 13px rgba(0,0,0,0.1);
+    cursor: pointer;
+    font-family: 'Lucida Grande', Helvetica, Arial, sans-serif;
+    font-size: 2rem;
+    position: relative;
+    transition: all ease .3s;
+    display: inline;
+}
+
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: #2c3e50;
+    background-image: none;
+    margin-left: 0px;
+}
+    /* Remove IE arrow */
+    select::-ms-expand {
+        display: none;
+    }
+/* Custom Select */
+.select {
+    position: relative;  
+    width: 20em;
+    height: 3em;
+    line-height: 3;
+    background: #FFF;
+    color:#ff6a00;
+    overflow: hidden;
+    border-radius: .25em;
+    
+}
+
+select {
+    flex: 1;
+    padding: 0 .5em;
+    color: #fff;
+    cursor: pointer;
+}
+/* Arrow */
+.select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: #34495e;
+    cursor: pointer;
+    pointer-events: none;
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
+}
+/* Transition */
+.select:hover::after {
+    color: #f39c12;
+}
+
+
+.poster {
+    width: 30%;
+    margin-right: 20px;
+    float: left;
+}
+
+    .poster img {
+        width: 100%;
+        margin: 0;
+    }
+
+.info {
+    margin-top: 10px;
+    width: 430px;
+    float: left;
+    padding: 0 10px;
+    color: #ccc;
+}
+
+.title {
+    display: inline-block;
+    width: 100%;
+    margin: 10px 0;
+    color: #000000;
+    text-shadow: 0 3px 2px #222;
+    font-size: 38px;
+    font-weight: 400;
+}
+
+.description {
+    word-wrap: break-word;
+    width: auto;
+    
+    display: inline-block;
+    margin-top: 6px;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 18px;
+    color: #000000;
+}

@@ -1,0 +1,17 @@
+﻿<link href="~/css/login.css" rel="stylesheet" />
+@model Cinema.Models.Movie
+<div class='wrap'>
+    Adding time:
+    <form action="addTimeButton" method="post">
+        <input type='text' name="name" class="inputBox" placeholder='name movie' required>
+        <input type='date' name="date" class="inputBox" placeholder='date' required>
+        <input name="hour" class="inputBox" placeholder='hour' type="time"  required>
+        <input name="hall" class="inputBox" placeholder='hall' type="text" required >
+        <input id="id_login" class='buttonClass' value="ADD" type="submit" />
+    </form>
+
+
+</div>
+
+
+

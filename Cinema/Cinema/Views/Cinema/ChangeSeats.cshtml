@@ -1,0 +1,173 @@
+﻿@model Cinema.viewModel.ChangeViewModel
+@using Cinema.Models
+@{
+    List<Order>
+        ords = new List<Order>();
+    ords = Model.orders;
+    Order myord = new Order();
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Seat Booking</title>
+    <link href="~/css/seat.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+
+</head>
+
+<body>
+    <div style="color:black;">
+
+        <br /><br /><br /><br /><br /><br />
+
+    </div>
+
+    <ul class="showcase">
+        <li>
+            <div class="seat"></div>
+            <small>N/A</small>
+        </li>
+        <li>
+            <div class="seat selected" style="color:#ff6a00"></div>
+            <small style="color:#ff6a00"></>Selected</small>
+        </li>
+        <li>
+            <div class="seat occupied"></div>
+            <small style="color:#ff6a00">Occupied</small>
+        </li>
+    </ul>
+
+    <div class="container">
+        <div class="movie-screen">
+            <h3> Screen </h3>
+        </div>
+
+        <div class="row-container">
+            @{
+                int i = 0, k = 1, j = 0;
+
+                while (i <= ((Model.hall.numSeat) / 8))
+                {
+                    <div class="row">
+                        @while (k <= (Model.hall.numSeat) && j <= 7)
+                        {
+                            <div class="seat">@k</div>
+                            k++; j++;
+                        }
+                        @{j = 0; i++;
+                        }
+
+                    </div>
+                }
+            }
+            <div class="text-wrapper">
+                <p class="text">Selected Seats <span id='count'>0</span>
+                <p class="text">Total Price <span id="total">0</span></p>
+            </div>
+
+
+
+
+            <form action="@Url.Action("changeDB", "Cinema",new {userName=Model.userName,name=Model.movie.name,date=Model.date,hour=Model.time,oldSeats=Model.oldSeats})" method="post" style="display:inline">
+                <input id="SumbitOrder" name="confrimbuy" class="confirm" type="submit" value="CHANGE!" onclick="forCart()" />
+                <input id="seatCartId" name="seatCartName" type="text" style="visibility:hidden" />
+                <input id="subTotalId" name="subTotalName" type="text" style="visibility:hidden" />
+            </form>
+
+
+        </div>
+
+    </div>
+    <script>
+        let data1 = [];
+        let data = new Array();
+        @foreach (Order myOrd in Model.orders)
+        {
+         @:data1.push([@myOrd.seat]);
+        }
+
+        for (let i = 0; i < data1.length; i++) {
+            data[i] = data1[i].toString();
+        }
+
+        const seats = document.querySelectorAll(".row .seat:not(.occupied)");
+        const seatContainer = document.querySelector(".row-container");
+        const count = document.getElementById("count");
+        const total = document.getElementById("total");
+        const movieSelect = document.getElementById("movie");
+        const seatsSelect = document.getElementById("Numseats");
+        const button = document.getElementById("SumbitOrder");
+        var temp = "@Model.oldSeats".split(',');
+        var seatsIndex = Array()
+        temp.forEach(function (el, index) {
+            seatsIndex.push(el);
+        })
+        
+      
+   
+        function Init() {
+            seats.forEach(function (el, index) {
+                if (data.indexOf(el.textContent) > -1) {
+                    el.classList.add("occupied");
+                }
+            })
+            seats.forEach(function (el, index) {
+                if (seatsIndex.indexOf(el.textContent) > -1) {
+                    el.classList.add("selected");
+                }
+            })
+            count.textContent = seatsIndex.length;
+            if(@Model.movie.salePrice==0)
+                        total.textContent = seatsIndex.length * @Model.movie.price;
+                    else
+                          total.textContent = seatsIndex.length * @Model.movie.salePrice;
+        } 
+        Init();
+
+        
+
+        
+        seatContainer.addEventListener("click", function (e) {
+            const selectedSeats = document.querySelectorAll(".container .selected").length - 1;
+            if(e.target.classList.contains("selected") || e.target.classList.contains("seat") &&!e.target.classList.contains("occupied"))
+                {
+                    e.target.classList.toggle("selected");
+                    if (seatsIndex.indexOf(e.target.textContent.toString()) == -1) {
+                        seatsIndex.push(e.target.textContent.toString());
+                    }
+                    else {
+                        seatsIndex = seatsIndex.filter(item => item !== (e.target.textContent.toString()))
+                    }
+                    count.textContent = seatsIndex.length;
+                    if(@Model.movie.salePrice==0)
+                        total.textContent = seatsIndex.length * @Model.movie.price;
+                    else
+                          total.textContent = seatsIndex.length * @Model.movie.salePrice;
+                }
+        });
+        function getSeatsIndex() {
+            alert("You Will Transfer To Payment of " + seatsIndex.length + " seats " + "\nPayment of: " + total.textContent);
+            const temp = document.getElementById("seatsId");
+            temp.value = seatsIndex.toString();
+        }
+
+        function forCart() {
+            const subtotal = document.getElementById("subTotalId");
+            subtotal.value = total.textContent;
+            const seats = document.getElementById("seatCartId");
+            seats.value = seatsIndex.toString();
+        }
+
+
+
+    </script>
+
+
+</body>
+
+</html>
+
